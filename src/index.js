@@ -27,5 +27,5 @@ app.put('/posts/:id', Post.update)
 app.get('/posts/:id', Post.read)
 
 app.listen('3333', () => {
-  console.log('Server started')
+  console.log('Server started!!!')
 })
