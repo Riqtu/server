@@ -3,9 +3,9 @@ class PostController {
   index(req, res) {
     PostModel.find().then((err, posts) => {
       if (err) {
-        res.send(err)
+        return res.send(err)
       }
-      res.json(posts)
+      return res.json(posts)
     })
   }
 
@@ -23,9 +23,9 @@ class PostController {
   read(req, res) {
     PostModel.findOne({ __id: req.params.id }).then(post => {
       if (!post) {
-        res.send({ error: 'not found' })
+        return res.send({ error: 'not found' })
       } else {
-        res.json({ post })
+        return res.json({ post })
       }
     })
   }
@@ -33,10 +33,10 @@ class PostController {
   update(req, res) {
     PostModel.findByIdAndUpdate(req.params.id, { $set: req.body }, err => {
       if (err) {
-        res.send(err)
+        return res.send(err)
       }
 
-      res.json({ status: 'updated' })
+      return res.json({ status: 'updated' })
     })
   }
 
@@ -45,9 +45,9 @@ class PostController {
       _id: req.params.id
     }).then(post => {
       if (post) {
-        res.json({ status: 'deleted' })
+        return res.json({ status: 'deleted' })
       } else {
-        res.json({ status: 'error' })
+        return res.json({ status: 'error' })
       }
     })
   }
@@ -56,9 +56,9 @@ class PostController {
       _title: req.params.title
     }).then(post => {
       if (post) {
-        res.json({ status: 'deleted' })
+        return res.json({ status: 'deleted' })
       } else {
-        res.json({ status: 'error' })
+        return res.json({ status: 'error' })
       }
     })
   }

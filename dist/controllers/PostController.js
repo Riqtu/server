@@ -27,10 +27,10 @@ function () {
     value: function index(req, res) {
       _Post["default"].find().then(function (err, posts) {
         if (err) {
-          res.send(err);
+          return res.send(err);
         }
 
-        res.json(posts);
+        return res.json(posts);
       });
     }
   }, {
@@ -54,11 +54,11 @@ function () {
         __id: req.params.id
       }).then(function (post) {
         if (!post) {
-          res.send({
+          return res.send({
             error: 'not found'
           });
         } else {
-          res.json({
+          return res.json({
             post: post
           });
         }
@@ -71,10 +71,10 @@ function () {
         $set: req.body
       }, function (err) {
         if (err) {
-          res.send(err);
+          return res.send(err);
         }
 
-        res.json({
+        return res.json({
           status: 'updated'
         });
       });
@@ -86,11 +86,11 @@ function () {
         _id: req.params.id
       }).then(function (post) {
         if (post) {
-          res.json({
+          return res.json({
             status: 'deleted'
           });
         } else {
-          res.json({
+          return res.json({
             status: 'error'
           });
         }
@@ -103,11 +103,11 @@ function () {
         _title: req.params.title
       }).then(function (post) {
         if (post) {
-          res.json({
+          return res.json({
             status: 'deleted'
           });
         } else {
-          res.json({
+          return res.json({
             status: 'error'
           });
         }

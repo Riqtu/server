@@ -19,7 +19,10 @@ var cors = require('cors'); // mongoose.connect(
 // )
 
 
-_mongoose["default"].connect('mongodb://localhost/blog');
+_mongoose["default"].connect('mongodb://localhost/forsmart', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 app.use(_bodyParser["default"].urlencoded({
   extended: true
