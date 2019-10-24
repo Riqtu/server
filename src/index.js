@@ -9,11 +9,11 @@ const Post = new PostController()
 const app = express()
 const cors = require('cors')
 
-mongoose.connect(
-  'mongodb+srv://Zet:20011998z@fors-rmfbi.azure.mongodb.net/test?retryWrites=true&w=majority',
-  { useNewUrlParser: true, useUnifiedTopology: true, useNewUrlParser: true }
-)
-// mongoose.connect('mongodb://localhost/blog')
+// mongoose.connect(
+//   'mongodb+srv://Zet:20011998z@fors-rmfbi.azure.mongodb.net/test?retryWrites=true&w=majority',
+//   { useNewUrlParser: true, useUnifiedTopology: true, useNewUrlParser: true }
+// )
+mongoose.connect('mongodb://localhost/forsmart')
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
