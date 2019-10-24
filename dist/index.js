@@ -10,12 +10,17 @@ var _PostController = _interopRequireDefault(require("./controllers/PostControll
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var Post = new _PostController["default"]();
 var app = (0, _express["default"])();
 
 var cors = require('cors');
 
-_mongoose["default"].connect('mongodb+srv://Zet:20011998z@fors-rmfbi.azure.mongodb.net/test?retryWrites=true&w=majority'); // mongoose.connect('mongodb://localhost/blog')
+_mongoose["default"].connect('mongodb+srv://Zet:20011998z@fors-rmfbi.azure.mongodb.net/test?retryWrites=true&w=majority', _defineProperty({
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}, "useNewUrlParser", true)); // mongoose.connect('mongodb://localhost/blog')
 
 
 app.use(_bodyParser["default"].urlencoded({
@@ -30,5 +35,5 @@ app["delete"]('/posts/:title', Post.deleteTitleAll);
 app.put('/posts/:id', Post.update);
 app.get('/posts/:id', Post.read);
 app.listen('3333', function () {
-  console.log('Server started');
+  console.log('Server started!!!');
 });

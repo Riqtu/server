@@ -10,7 +10,8 @@ const app = express()
 const cors = require('cors')
 
 mongoose.connect(
-  'mongodb+srv://Zet:20011998z@fors-rmfbi.azure.mongodb.net/test?retryWrites=true&w=majority'
+  'mongodb+srv://Zet:20011998z@fors-rmfbi.azure.mongodb.net/test?retryWrites=true&w=majority',
+  { useNewUrlParser: true, useUnifiedTopology: true, useNewUrlParser: true }
 )
 // mongoose.connect('mongodb://localhost/blog')
 
